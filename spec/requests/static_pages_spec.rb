@@ -9,10 +9,15 @@ describe "Static pages" do
       expect(page).to have_content('Sample App')
     end
 
-    it "should have the TITLE 'Home'" do
+    it "should have the base title" do
     visit '/static_pages/home'
-    expect(page).to have_title('Home')
+    expect(page).to have_title('Ruby on Rails')
 	end
+
+  it "should have a custom page title" do
+    visit '/static_pages/home'
+    expect(page).not_to have_title('| Home')
+  end
 
 
   end
@@ -44,7 +49,18 @@ describe "Static pages" do
     end
   end
 
+  describe "Contact Page" do
 
+    it "should have the content 'Contact Us'" do
+      visit '/static_pages/contact'
+      expect(page).to have_content('Contact Us')
+    end
+
+    it "should have the title 'Contact Us'" do
+      visit '/static_pages/contact'
+      expect(page).to have_title("Contact Us")
+    end
+  end
 
 
 
