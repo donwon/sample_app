@@ -27,9 +27,7 @@ describe "UserPages" do
       end
     end
   end
-
-
-
+  
 
   describe "signup page" do 
     before { visit signup_path }
